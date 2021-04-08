@@ -1,4 +1,4 @@
-image = imread('./test_photo.png');
+image = imread('./test_photo.jpg');
 figure; imshow(image);
 disp("select the top pixel location of the head ((both vertical and horizontal index matter, please cross the horizontal middle of the face))")
 uphead_idx = ginput(1);
@@ -8,12 +8,12 @@ disp("select the pixel location of the eye (only vertical index matters)")
 eye_idx = ginput(1);
 
 face_height = ceil(max(downhead_idx - uphead_idx));
-pix_per_mm = ceil(face_height/32);
-down_idx = ceil(eye_idx(2)) + pix_per_mm*30;
-left_idx = max(ceil(uphead_idx(1)) - ceil(pix_per_mm*25.5),1);
+pix_per_mm = face_height/32;
+down_idx = ceil(eye_idx(2) + pix_per_mm*30);
+left_idx = max(ceil(uphead_idx(1) - pix_per_mm*25.5),1);
 
-im_height = pix_per_mm*51;
-im_width = pix_per_mm*51;
+im_height = ceil(pix_per_mm*51);
+im_width = ceil(pix_per_mm*51);
 up_idx = down_idx - im_height;
 
 image_crop = image(up_idx:(up_idx+im_height-1), left_idx:(left_idx+im_width-1),:);
