@@ -21,7 +21,7 @@ figure; imshow(image_crop);
 mkdir('./us_passport_photo')
 imwrite(uint8(image_crop), './us_passport_photo/photo_us.jpg');
 
-
+% 1 in = 2.54 cm
 in_mm = 25.4;
 width = ceil(6*in_mm*pix_per_mm);  height = ceil(4*in_mm*pix_per_mm);
 full_image = [];
