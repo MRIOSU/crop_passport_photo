@@ -1,10 +1,10 @@
 image = imread('./test_photo.png');
 figure; imshow(image);
-disp("slect the top pixel location of the head ((cross horizontal middle of the face))")
+disp("select the top pixel location of the head ((both vertical and horizontal index matter, please cross the horizontal middle of the face))")
 uphead_idx = ginput(1);
-disp("slect the bottom pixel location of the head")
+disp("select the bottom pixel location of the head (only vertical index matters)")
 downhead_idx = ginput(1);
-disp("slect the pixel location of the eye (only vertical index matters)")
+disp("select the pixel location of the eye (only vertical index matters)")
 eye_idx = ginput(1);
 
 face_height = ceil(max(downhead_idx - uphead_idx));
